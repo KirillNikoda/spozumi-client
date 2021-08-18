@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../..';
+import { createReducer, createSlice } from '@reduxjs/toolkit';
+import { decrement, increment } from '../../actions/counterActions';
 
 export type CounterState = {
 	value: number;
@@ -9,21 +9,14 @@ const initialState = {
 	value: 0
 };
 
-export const counterSlice = createSlice({
-	name: 'counter',
-	initialState,
-	reducers: {
-		increment: (state) => {
-			state.value++;
-		},
-		decrement: (state) => {
-			state.value--;
-		}
-	}
+export const counterReducer = createReducer(initialState, (builder) => {
+	builder.addCase(increment, (state) => {
+		console.log(state.value);
+
+		state.value++;
+	});
+
+	builder.addCase(decrement, (state) => {
+		state.value--;
+	});
 });
-
-export const { increment, decrement } = counterSlice.actions;
-
-export const selectCount = (state: RootState) => state.counter.value;
-
-export default counterSlice.reducer;

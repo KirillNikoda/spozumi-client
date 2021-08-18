@@ -4,7 +4,8 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { decrement, increment, selectCount } from '../store/reducers/counter/counterReducer';
+import { selectCount } from '../store/selectors';
+import { decrement, increment } from '../store/actions/counterActions';
 
 const Home: NextPage = () => {
 	const dispatch = useAppDispatch();
