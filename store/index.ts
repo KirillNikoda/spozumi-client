@@ -1,12 +1,17 @@
-import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
-import { createStore, Store } from 'redux';
-import { reducer, RootState } from './reducers';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import counterReducer from './reducers/counter/counterReducer';
 
-// create a makeStore function
-const makeStore: MakeStore<Store<RootState>> = (context: Context) =>
-	createStore(reducer);
-
-// export an assembled wrapper
-export const wrapper = createWrapper<Store<RootState>>(makeStore, {
-	debug: true,
+export const store = configureStore({
+	reducer: {
+		counter: counterReducer
+	}
 });
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+	ReturnType,
+	RootState,
+	unknown,
+	Action<string>
+>;

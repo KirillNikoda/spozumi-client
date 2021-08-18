@@ -1,24 +1,21 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/reducers';
 import styles from '../styles/Home.module.css';
+import Header from '../components/Header';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { decrement, increment, selectCount } from '../store/reducers/counter/counterReducer';
 
 const Home: NextPage = () => {
-	const dispatch = useDispatch();
-	const { counter } = useSelector((state: RootState) => state.counter);
+	const dispatch = useAppDispatch();
+	const counterValue = useAppSelector(selectCount);
 
-	function increment() {
-		dispatch({
-			type: 'INCREMENT',
-		});
+	function incrementCounter() {
+		dispatch(increment());
 	}
 
-	function decrement() {
-		dispatch({
-			type: 'DECREMENT',
-		});
+	function decrementCounter() {
+		dispatch(decrement());
 	}
 
 	return (
@@ -29,10 +26,10 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<h1>{counter}</h1>
+			<Header>{counterValue}</Header>
 
-			<button onClick={increment}>+</button>
-			<button onClick={decrement}>-</button>
+			<button onClick={incrementCounter}>+</button>
+			<button onClick={decrementCounter}>-</button>
 			<footer className={styles.footer}>
 				<a
 					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
