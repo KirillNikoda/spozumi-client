@@ -79,10 +79,6 @@ const Header = (props: any) => {
 				<LinksBlock>{linksToRender}</LinksBlock>
 			</LogoAndLinksBlock>
 			<InputAndButtonsBlock>
-				<SearchContainer>
-					<SearchInput placeholder="Searh for ..." />
-					<SearchImage src="search.png" />
-				</SearchContainer>
 				<IconsBlock>{iconsToRender}</IconsBlock>
 			</InputAndButtonsBlock>
 		</HeaderBlock>
