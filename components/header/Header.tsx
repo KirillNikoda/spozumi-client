@@ -1,19 +1,18 @@
 import {
 	HeaderBlock,
-	Icon,
+	HoverLink,
 	IconsBlock,
 	IconTitle,
 	InputAndButtonsBlock,
 	LinksBlock,
 	LogoAndLinksBlock,
 	NavLink,
+	SearchContainer,
+	SearchImage,
 	SearchInput
 } from './Styles';
-import Logo from '/public/logo.svg';
 import Link from 'next/link';
-import ProfileIcon from '/public/profile.svg';
-import HeartIcon from '/public/heart.svg';
-import CartIcon from '/public/cart.svg';
+
 import Image from 'next/image';
 
 const links = [
@@ -33,17 +32,17 @@ const links = [
 
 const icons = [
 	{
-		img: <ProfileIcon />,
+		img: '/profile.svg',
 		title: 'Profile',
 		path: '/profile'
 	},
 	{
-		img: <HeartIcon />,
+		img: '/heart.svg',
 		title: 'Wishlist',
 		path: '/wishlist'
 	},
 	{
-		img: <CartIcon />,
+		img: '/cart.svg',
 		path: '/cart',
 		title: 'Bag'
 	}
@@ -54,7 +53,7 @@ const Header = (props: any) => {
 		return (
 			<NavLink>
 				<Link href={path}>
-					<a>{title}</a>
+					<HoverLink>{title}</HoverLink>
 				</Link>
 			</NavLink>
 		);
@@ -62,11 +61,9 @@ const Header = (props: any) => {
 
 	const iconsToRender = icons.map(({ img, title, path }) => (
 		<Link href={path}>
-			<a>
-				<Icon>
-					{img}
-					<IconTitle>{title}</IconTitle>
-				</Icon>
+			<a style={{ textAlign: 'center' }}>
+				<img src={img} alt="test" />
+				<IconTitle>{title}</IconTitle>
 			</a>
 		</Link>
 	));
@@ -75,14 +72,15 @@ const Header = (props: any) => {
 		<HeaderBlock>
 			<LogoAndLinksBlock>
 				<Link href="/">
-					<a>
-						<Logo />
-					</a>
+					<Image src="/logo.svg" width="102" height="82" />
 				</Link>
 				<LinksBlock>{linksToRender}</LinksBlock>
 			</LogoAndLinksBlock>
 			<InputAndButtonsBlock>
-				<SearchInput placeholder="Searh for ..." />
+				<SearchContainer>
+					<SearchInput placeholder="Searh for ..." />
+					<SearchImage src="search.png" />
+				</SearchContainer>
 				<IconsBlock>{iconsToRender}</IconsBlock>
 			</InputAndButtonsBlock>
 		</HeaderBlock>
