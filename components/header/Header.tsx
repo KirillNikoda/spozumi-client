@@ -14,6 +14,7 @@ import {
 import Link from 'next/link';
 
 import Image from 'next/image';
+import { useAppSelector } from 'store/hooks';
 
 const links = [
 	{
@@ -49,6 +50,14 @@ const icons = [
 ];
 
 const Header = (props: any) => {
+	const user = useAppSelector((state) => state.user.currentUser);
+
+	if (!Object.keys(user).length) {
+		icons[0].path = '/auth';
+	} else {
+		icons[0].path = '/profile';
+	}
+
 	const linksToRender = links.map(({ title, path }, i) => {
 		return (
 			<NavLink key={i}>
