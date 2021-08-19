@@ -1,18 +1,19 @@
+import ProductsMain from 'components/products/ProductsMain';
+import { NextPage } from 'next';
 import { Fragment } from 'react';
-import Header from '../../components/header/Header';
 import { CommonBlock, RoutingDescription, RoutingWrapper } from './Styles';
 
-export default function Products() {
+const Products: NextPage = () => {
 	return (
 		<Fragment>
-			<CommonBlock>
-				<Header />
-			</CommonBlock>
 			<RoutingWrapper>
 				<CommonBlock>
 					<RoutingDescription>Home / Clothing / Application List</RoutingDescription>
 				</CommonBlock>
 			</RoutingWrapper>
+			<ProductsMain />
 		</Fragment>
 	);
-}
+};
+
+export default Products;
