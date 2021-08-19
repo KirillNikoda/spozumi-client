@@ -82,3 +82,10 @@ export const IconTitle = styled.p`
 	font-size: 10px;
 	color: #000000;
 `;
+
+export const LinkWrapper = styled.div`
+	transition: 0.3s ease-in-out;
+	:hover {
+		transform: translateX(1.1);
+	}
+`;

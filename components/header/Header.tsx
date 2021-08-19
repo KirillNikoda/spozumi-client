@@ -49,9 +49,9 @@ const icons = [
 ];
 
 const Header = (props: any) => {
-	const linksToRender = links.map(({ title, path }) => {
+	const linksToRender = links.map(({ title, path }, i) => {
 		return (
-			<NavLink>
+			<NavLink key={i}>
 				<Link href={path}>
 					<HoverLink>{title}</HoverLink>
 				</Link>
@@ -59,8 +59,8 @@ const Header = (props: any) => {
 		);
 	});
 
-	const iconsToRender = icons.map(({ img, title, path }) => (
-		<Link href={path}>
+	const iconsToRender = icons.map(({ img, title, path }, i) => (
+		<Link href={path} key={i}>
 			<a style={{ textAlign: 'center' }}>
 				<img src={img} alt="test" />
 				<IconTitle>{title}</IconTitle>
@@ -72,7 +72,9 @@ const Header = (props: any) => {
 		<HeaderBlock>
 			<LogoAndLinksBlock>
 				<Link href="/">
-					<Image src="/logo.svg" width="102" height="82" />
+					<a>
+						<Image src="/logo.svg" width="102" height="82" />
+					</a>
 				</Link>
 				<LinksBlock>{linksToRender}</LinksBlock>
 			</LogoAndLinksBlock>
