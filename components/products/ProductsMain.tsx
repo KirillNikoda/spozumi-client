@@ -1,3 +1,4 @@
+import { Product } from 'models/product.models';
 import { CommonBlock } from 'pages/products/Styles';
 import ProductsList from './productsList/ProductsList';
 import Sidebar from './sidebar/Sidebar';

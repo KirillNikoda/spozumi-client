@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { baseUrl } from 'constants/api.constants';
-import { LoginUserDto, RegisterUserDto } from 'models/user.models';
+import { LoginUserDto, RegisterUserDto } from 'models/dtos.models';
 
 export const authApi = {
 	login: async (user: LoginUserDto) => {

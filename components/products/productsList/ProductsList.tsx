@@ -1,3 +1,4 @@
+import { useAppSelector } from 'store/hooks';
 import ProductCard from '../productCard/ProductCard';
 import { ProductListWrapper } from './Styles';
 import WomenCard from '/public/women.svg';
@@ -46,7 +47,8 @@ const products = [
 ];
 
 const ProductsList = () => {
-	const img = <WomenCard />;
+	const productsFromBackEnd = useAppSelector((state) => state.products.products);
+	console.log(productsFromBackEnd);
 
 	const productsToRender = products.map((props) => <ProductCard {...props} />);
 

@@ -1,10 +1,11 @@
-export interface LoginUserDto {
+export interface User {
 	email: string;
-	password: string;
+	role: string;
+	id: number;
 }
 
-export interface RegisterUserDto {
-	email: string;
-	password: string;
-	role: string;
+export interface UsersState {
+	currentUser: User;
+	err: string;
+	isFetching: boolean;
 }

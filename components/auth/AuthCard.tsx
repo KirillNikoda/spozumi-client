@@ -1,4 +1,4 @@
-import { LoginUserDto, RegisterUserDto } from 'models/user.models';
+import { LoginUserDto, RegisterUserDto } from 'models/dtos.models';
 import { useState } from 'react';
 import { Input, InputsContainer, InputsTitle, InputsWrapper, SubmitBtn } from './Styles';
 

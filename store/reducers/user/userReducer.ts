@@ -1,18 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setError, setIsFetching } from 'store/actions/usersActions';
 import { getMe, login, register } from 'store/thunks/userThunks';
-
-export interface User {
-	email: string;
-	role: string;
-	id: number;
-}
-
-export interface UsersState {
-	currentUser: User;
-	err: string;
-	isFetching: boolean;
-}
 
 const initialState = {
 	currentUser: {},

@@ -1,5 +1,5 @@
 import AuthCard from 'components/auth/AuthCard';
-import { LoginUserDto, RegisterUserDto } from 'models/user.models';
+import { LoginUserDto, RegisterUserDto } from 'models/dtos.models';
 import { useState } from 'react';
 import { useAppDispatch } from 'store/hooks';
 import styled from 'styled-components';
